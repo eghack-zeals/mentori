@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# html template
+gem 'slim-rails'
+
 # login
 gem 'devise'
 
