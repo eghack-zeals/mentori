@@ -7,6 +7,13 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore ruby gems
+/vendor/bundle
+
+# Ignore encrypted secrets key file.
+.env
+config/leml.key
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
