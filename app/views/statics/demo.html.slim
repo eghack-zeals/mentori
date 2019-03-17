@@ -1,0 +1,24 @@
+h1 demo
+| （色々試す場所）
+
+.chat_container
+  .chat_container_inner
+    .mentori_container
+      .mentori_name_container
+        h3 MENTORI
+      .mentori_icon_container
+        | 🐤
+    .message_container
+      .message_log_container
+        - @demo_messages.each do |msg|
+          - if msg.id % 2 == 0
+            .user_send_message_box
+              = msg.text
+          - else
+            .mentori_send_message_box
+              = msg.text
+      .message_sent_container
+        .message_sent_form
+          = form_with do |f|
+            = f.text_field :text
+            = f.submit 'おくる'

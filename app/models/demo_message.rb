@@ -1,0 +1,2 @@
+class DemoMessage < ApplicationRecord
+end
