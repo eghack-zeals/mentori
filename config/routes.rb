@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get '/top', to: 'statics#top', as: :top
   get '/demo', to: 'statics#demo', as: :demo
   root 'statics#top'
+  post '/users/:id/user_speeches', to: 'user_speeches#speak'
 end
