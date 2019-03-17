@@ -1,6 +1,6 @@
 class ConversationLog < ApplicationRecord
-  enum bot: { 0: user, 1: bot }
-  belongs_to :user
+  enum bot: { 'user': 0, 'bot': 1 }
+  # belongs_to :user
 
-  has_many :conversation_congtents
+  has_many :conversation_contents
 end

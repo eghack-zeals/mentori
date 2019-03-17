@@ -1,26 +1,32 @@
 require 'net/http'
 class UserSpeechesController < ApplicationController
+  before_action :set_user
 
   def speak
     create_user_log(params[:message])
     create_bot_log(hoge(params[:message]))
     @conversation_logs = collect_logs
+    redirect_to demo_path
   end
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def collect_logs
-    ConversationLog.last(10)
+    ConversationLog.last(5)
   end
 
   def create_user_log(user_speech_text)
-    cl = ConversationLog.create(bot: 0, user_id: user_id)
-    cl.conversation_logs.create(user_speech_text)
+    cl = ConversationLog.create(bot: 0, user_id: @user.id)
+    cl.conversation_contents.create(text: user_speech_text)
   end
 
   def create_bot_log(bot_reply_text)
     cl = ConversationLog.create(bot: 1)
-    cl.conversation_logs.create(bot_reply_text)
+    cl.conversation_contents.create(text: bot_reply_text)
   end
 
   def hoge(user_speech)
