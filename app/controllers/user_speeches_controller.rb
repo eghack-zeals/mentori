@@ -34,3 +34,19 @@ class UserSpeechesController < ApplicationController
     res.body.force_encoding("utf-8")
   end
 end
+
+def repeat(str, num)
+  Array.new(num).map { str }.join('')
+end
+
+
+def make_terupyramid(num)
+  str = "terupii"
+  rows = []
+  num.times do |i|
+    rows.push(repeat(str, i))
+  end
+  rows.each_with_index do |row, i|
+    puts repeat('   ', rows.count - i) + row
+  end
+end
